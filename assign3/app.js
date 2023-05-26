@@ -1,7 +1,8 @@
 const express = require('express')
 
 const app = express()
-
+require('./routes/routes')
+/*
 app.get('/user', (req, res, next) => {
   console.log("Log from user page")
   
@@ -18,5 +19,5 @@ app.get('/', (req, res, next) => {
   res.write('<html/>')
   res.send()
 })
-
+*/
 app.listen(3000)
