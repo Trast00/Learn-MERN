@@ -1,23 +1,12 @@
 const express = require('express')
-
 const app = express()
-require('./routes/routes')
-/*
-app.get('/user', (req, res, next) => {
-  console.log("Log from user page")
-  
-  res.write('<html>')
-  res.write('<body><h1>Hello express! from user</h1></body>')
-  res.write('<html/>')
-  res.send()
-})
+const path = require('path')
+const indexRouter = require('./routes/index.js');
+const usersRouter = require('./routes/users.js');
 
-app.get('/', (req, res, next) => {
-  console.log("Log from main page")
-  res.write('<html>')
-  res.write('<body><h1>Hello express! from main</h1></body>')
-  res.write('<html/>')
-  res.send()
-})
-*/
-app.listen(3000)
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter)
+
+app.listen(3005)
