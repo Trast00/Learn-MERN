@@ -68,3 +68,17 @@ in the file in which we want to use the layout
     p this part will be injected intead of block content
     h1 Page Not Found
 ```
+
+**conditionnal rendering with pug**
+
+```js
+  res.render('add-product', { pageTitle: 'Add title', path: '/admin/add-product'})
+```
+
+```pug
+  a(href="", class=(path === '/admin/add-product' ? 'active' : ''))
+```
+
+## Handlebar
+
+npm install --save express-handlebars@3.0
