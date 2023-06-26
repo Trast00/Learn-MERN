@@ -82,3 +82,21 @@ in the file in which we want to use the layout
 ## Handlebar
 
 npm install --save express-handlebars@3.0
+
+### set handlebar as engine
+
+in app.js
+```js
+  const expressHandleBars = require('express-handlebars')
+
+  app.engine('handlebars', expressHandleBars()) /* set handle bar as engine with name and callback initialiser */
+  app.set('view engine', 'handlebars') /* handlebars should be same as engine name 'handlebars' */
+```
+
+create 404.hbs 
+```hbs
+  <head>
+    <!-- handlebar syntax is really similar to html -->
+    <title>{{ pageTitle }}</title>
+  </head>
+```
