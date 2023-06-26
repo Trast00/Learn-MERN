@@ -110,11 +110,60 @@ create 404.hbs
   <div class="grid">
     {{#each prods}}
     <article>
-
+      <header>
+        <h1>{{ this.title }}</h1>
+      </header>
     </article>
     {{/each}}
   </div>
   {{ else }}
     <h1>No products Found</h1>
   {{/if}}
+```
+
+### Layout in handlebars
+
+**set layout Directory and Default**
+in app.js
+```js
+  /* set layout directory and default layout (optional) */
+  app.engine('handlebars', expressHandleBars({layoutDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) /* extname is usefull only for layout use */
+```
+
+**create layouts**
+create layout folder and main-layout.hbs
+in main-layout.hbs
+```handlebars
+  <head>
+    <!-- ... -->
+    <!-- add dynamic link to css -->
+    {{#if formsCSS }}
+    <link rel="stylesheet" href="/css/forms.css">
+    {{/if}}
+    {{#if productsCSS }}
+    <link rel="stylesheet" href="/css/products.css">
+    {{/if}}
+  </head>
+  <body>
+    <header>
+      <nav class="{{#if activeShop}}active{{/if}}">
+        This is navbar
+      </nav>
+    </header>
+    {{{ body }}} <!-- yes 3 {} -->
+  </body>
+  <!-- activeShop and productsCSS are data passed by shop.js and product.js -->
+```
+
+in shop.js (or product.js)
+```js
+  res.render('shop', {
+    prods: products, /* array */
+    pageTitle: 'Shop',
+    path: '/',
+    hasProducts: products.length > 0,
+    activeShop: true,
+    productCSS: true,
+    /* layout: false*/  /*to not use the default layout (can be omitted if needed */
+  })
 ```
