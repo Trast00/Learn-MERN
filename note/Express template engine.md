@@ -100,3 +100,21 @@ create 404.hbs
     <title>{{ pageTitle }}</title>
   </head>
 ```
+
+### convert project to handlebar
+
+**conditional and loop in handlebar**
+```handlebars
+  <!-- # is used for content that doesn't just return a text so for conditionnal render or loop -->
+  {{#if hasProduct }} <!-- hasProducts: products.length > 0 -->
+  <div class="grid">
+    {{#each prods}}
+    <article>
+
+    </article>
+    {{/each}}
+  </div>
+  {{ else }}
+    <h1>No products Found</h1>
+  {{/if}}
+```
