@@ -178,6 +178,11 @@ in shop.js (or product.js)
 
 ### Use of Ejs
 ```js
+  <%= %> /*To render text or data */
+  <% %> /*To writte js code */
+  <%- %> /*To render html code for partials */
+```
+```js
   <head>
     <title><%= pageTitle %></title>
   </head>
@@ -193,5 +198,22 @@ in shop.js (or product.js)
     <% } else { %>
       <p>Nothing found!</p>
     <% } %>
+  </body>
+```
+
+### partials
+create a folder **views/includes**
+**create files head.ejs**
+```js
+  <head>...</head>
+```
+**create files navigation.ejs**
+**create files end.ejs**
+
+**to importe a partials**
+```js
+  <%- include('includes/head.ejs') %> /* path from current file */
+  <body>
+    <div class="<%= path === '/admin/add-product' ? 'active' : '' %"></div>
   </body>
 ```
