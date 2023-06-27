@@ -167,3 +167,31 @@ in shop.js (or product.js)
     /* layout: false*/  /*to not use the default layout (can be omitted if needed */
   })
 ```
+
+## Ejs
+
+### Set engine
+
+```js
+  app.set('view engine','ejs')
+```
+
+### Use of Ejs
+```js
+  <head>
+    <title><%= pageTitle %></title>
+  </head>
+  <body>
+    <% if (prods.length > 0) { %>
+      <div>
+        <% for(let product of prods) { %>
+          <article>
+            <header><%= product.title %></header>
+          </article>
+        <% } %>
+      </div>
+    <% } else { %>
+      <p>Nothing found!</p>
+    <% } %>
+  </body>
+```
