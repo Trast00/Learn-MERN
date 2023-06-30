@@ -5,5 +5,7 @@ const rootPath = require('../utils/rootPath.js')
 
 router.get('/', (req, res, next) => {
   const filePath = path.join(rootPath, 'views', 'index.ejs')
-  res.sendFile(filePath)
+  res.render(filePath)
 })
+
+module.exports = router
