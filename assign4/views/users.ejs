@@ -6,9 +6,11 @@
   <title>Users</title>
 </head>
 <body>
-  <h1>List users:</h1>
+  <h1><%= pageTitle %></h1>
   <ul>
-    <li>user.1</li>
+    <% for(user in listUsers) { %>
+    <li>user: <%= user.name %></li>
+    <% } %>
   </ul>
 </body>
 </html>
