@@ -170,3 +170,20 @@ app.js
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/add-product.css">
 ```
+
+## Share data across components
+in app.js
+```js
+  /* set body parser */
+  app.use(bodyParser.urlencoded({extended: false}))
+```
+in routes/admin.js
+```js
+  /* ... */
+  const listTitle = []
+  router.post('/add-product', (req, res, next) => {
+    console.log(req.body.title)
+    listTitle.push({title: req.body.title})
+    res.redirect('/';)
+  })
+```
