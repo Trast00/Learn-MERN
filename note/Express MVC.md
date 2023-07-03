@@ -49,6 +49,7 @@ in routes/admin.js
 
 - create models/product.js
 
+### Create models
 in models/product.js
 ```js
   const products = [];
@@ -78,5 +79,43 @@ in controllers/products
 
   exports.getProducts = (req, res, next) => {
     const products = Product.fetchAll();
+  }
+```
+
+### Save in file
+
+create data folder
+
+in models/product.js
+```js
+  const fs = require('fs') /* file save */
+  /* */
+  save() {
+    const filePath = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json') /* data folder and products.json */
+    
+    fs.readFile(filePath, (err, fileContent) => {
+        let products = []
+        if(!err) { /* if we got no error */
+          products = JSON.parse(fileContent);
+        }
+        products.push(this) /* this should refer to the class saved is called on */
+        fs.writeFile(filePath, JSON.stringify(products), (err)=> {
+          console.log(err)
+        })
+      }
+    ); /* use for small file only */
+```
+
+### Read data
+
+```js
+  static fetchAll() {
+    const filePath = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json')
+    fs.readFile(filePath, (err, fileContent) => {
+      if (err) {
+        return []
+      }
+    })
+    return products
   }
 ```
