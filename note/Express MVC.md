@@ -114,7 +114,7 @@ in models/product.js
     /* /!\ this is asynchronous */
     fs.readFile(filePath, (err, fileContent) => {
       if (err) {
-        callBack([]) /* call the call back and give arg*/
+        return callBack([]) /* call the call back and give arg*/
       }
     })
     callBack(JSON.parse(fileContent))
@@ -128,3 +128,15 @@ in products.js
     res.render(/* ... */)
   })
 ```
+
+
+### Summary
+
+**Models**
+represent data, responsible for managin data (fetch, save), contains data-related logic
+
+**Views**
+Shouldn't contain too much logic, what's user see
+
+**Controllers**
+Connects Models and View
