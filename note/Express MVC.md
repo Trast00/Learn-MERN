@@ -109,13 +109,22 @@ in models/product.js
 ### Read data
 
 ```js
-  static fetchAll() {
+  static fetchAll(callBack) {
     const filePath = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json')
+    /* /!\ this is asynchronous */
     fs.readFile(filePath, (err, fileContent) => {
       if (err) {
-        return []
+        callBack([]) /* call the call back and give arg*/
       }
     })
-    return products
+    callBack(JSON.parse(fileContent))
   }
+```
+in products.js
+```js
+  /* remove : const products = Product.fetchAll() and add */
+  Product.fetchAll((products) => {
+    /* after the fetch */
+    res.render(/* ... */)
+  })
 ```
