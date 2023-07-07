@@ -8,7 +8,7 @@
   <a href="/products/<%= product.id %>">Detail</a>
 ```
 
-### get data to routes
+### get data from routes
 
 routes/product.js
 ```js
@@ -17,9 +17,19 @@ routes/product.js
 controllers/shop.js
 ```js
   /* ... */
+  static findById(id, cb) {
+    getProductsFromFile(products => {
+      const product = products.find(p => p.id === id);
+      cb(product);
+    })
+  }
+  /* ... */
   exports.getProduct = (req, res, next) => {
     const prodId = req.params.productId;
-    console.log(prodId)
+    Product.findById(prodId, product => {
+      console.log(product)
+    })
+    console.log()
   }
   /* ... */
 ```
