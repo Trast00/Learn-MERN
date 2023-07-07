@@ -38,3 +38,33 @@ controllers/shop.js
   }
   /* ... */
 ```
+
+### Post data (passing data product)
+
+**adding product to card features**
+views/product-detail 
+```js
+  <form action="/cart" method="POST">
+    <input type="hidden" name="productId" value="<%= product.id %>" />
+    <button type="submit">Add to cart</button>
+  </form>
+  /* update the part above to usee partial */
+  <%- includes('../includes/add-to-cart.ejs', 
+  /* if include is in loop we need to pass the data as it will not have access to it directly */
+  {product: product}) %>
+```
+controllers/shop.js
+```js
+  exports.postCart = (req, res, next) => {
+    const prodId = req.body.productId
+    console.log(prodId)
+    res.redirect('/cart');
+  };
+```
+
+routes/shop.js
+```js
+  /* ... */
+  router.post('/cart', shopController.postCart)
+  /* ... */
+```
