@@ -28,6 +28,11 @@ controllers/shop.js
     const prodId = req.params.productId;
     Product.findById(prodId, product => {
       console.log(product)
+      res.render('shopp/product-detail', {
+        pageTitle: product.title,
+        path: `/product/${product.id}`
+        product: product
+        })
     })
     console.log()
   }
