@@ -142,3 +142,6 @@ query paramter are part after the '?'
 
 **get data from query parameter**
 req.query.edit `return a string; edit is a key`
+
+**use filter**
+products.filter(prod => prod.id !== id)
