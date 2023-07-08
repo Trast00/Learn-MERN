@@ -68,3 +68,70 @@ routes/shop.js
   router.post('/cart', shopController.postCart)
   /* ... */
 ```
+
+## Models
+
+**create Cart class**
+
+create models/cart.js
+```js
+  /* ... */
+  const fs = require('fs')
+  const path = require('path')
+  const p = path.join(
+    path.dirname(processs.mainModule.filename), 'data', 'cart.json'
+  )
+  module.exports = class Cart {
+    /* 
+    If the Cart was a normal class(blueprint of object that can have multiple instance)
+    constructor() {
+      this.products = [];
+      this.totalPrice = 0;
+    } 
+
+    As cart will have only one instance let's do it a other way
+    */
+   static addProduct(id, productPrice) {
+    // fetch the previous cart
+    fs.readFile(p, (err, fileContent) => {
+      let cart = {products: [], totalPrice: 0};
+      if (!err) {
+        cart = JSON.parse(fileContent);
+      }
+    })
+    // find existing product (in the cart)
+    const existingProductIndex = cart.products.findIndex(prod => prod.id === id)
+    const existingProduct = cart.products[existingProductIndex];
+    let updatedProduct;
+    if (existingProduct) {
+      updatedProduct = { ...existingProduct };
+      // increase quantity
+      updatedProduct.quantity = updatedProduct.quantity + 1;
+      cart.products = [...cart.products]; /* useless ? */
+      cart.products[existingProductIndex] = updatedProduct
+    } else {
+      // add new product
+      updatedProduct = { id: id, quantity: 1 };
+      cart.products = [ ...cart.products, updatedProduct];
+    }
+    cart.totalPrice = cart.totalPrice + +productPrice /* add a + just after productPrice will convert it to Integer */
+
+    // save the cart
+    fs.writeFile(p, JSON.stringify(cart), err => {
+      console.log(err)
+    })
+   }
+  }
+```
+
+in controllers/shop.js
+```js
+  exports.postCart = (req, res, next) => {
+    const prodId = req.body.productId
+    Product.findById(prodId, (product) => {
+      Cart.addProduct(prodId, product)
+    })
+    redirect('/cart');
+  }
+```
+
