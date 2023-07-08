@@ -135,3 +135,10 @@ in controllers/shop.js
   }
 ```
 
+### Query parameter
+
+query paramter are part after the '?'
+`/products/15?edit=true`
+
+**get data from query parameter**
+req.query.edit `return a string; edit is a key`
