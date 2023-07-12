@@ -96,3 +96,15 @@ in models/product.js
 
   module.exports = Product;
 ```
+
+### Create TABLE
+in app.js
+```js
+  const sequelize = require('./utils/sequelize')
+  /* ... */
+  /* sync will make seq to create a table to all the models (create table if not exist) */
+  sequelize.sync().then(result => {
+    app.listen(3005)
+  }).catch(err => {})
+
+```
