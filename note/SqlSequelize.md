@@ -108,3 +108,14 @@ in app.js
   }).catch(err => {})
 
 ```
+
+### Insert DATA Sequelize
+
+```js
+  Product.create({
+    title: title,
+    price: price,
+    imageUrl: imageUrl,
+    description: description,
+  }).then().catch() /* create = build + save */
+```
