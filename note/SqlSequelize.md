@@ -1,4 +1,4 @@
-# SQL and NoSQl
+# SQL and Sequelize
 
 ## SQL
 
