@@ -109,7 +109,7 @@ in app.js
 
 ```
 
-### Insert DATA Sequelize
+### Insert Data Sequelize
 
 ```js
   Product.create({
@@ -118,4 +118,14 @@ in app.js
     imageUrl: imageUrl,
     description: description,
   }).then().catch() /* create = build + save */
+```
+
+### Read data
+
+```js
+  `get all data`
+  Product.findAll()
+
+  `find data by id`
+  Product.findByPk()
 ```
