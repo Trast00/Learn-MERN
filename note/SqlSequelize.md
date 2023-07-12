@@ -65,5 +65,34 @@ in  utils/database.js
   module.exports = sequelize;
 ```
 
-## Create a Models Sequelize
+### Create a Models Sequelize
+in models/product.js
+```js
+  const Sequelize = require('seequelize');
 
+  const sequelize = require('utils/database');
+
+  const Product = sequelize.define('product', {
+    id: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true
+    },
+    title: Sequelize.STRING,
+    price: {
+      type: Sequelize.DOUBLE,
+      allowNull: false
+    },
+    imageUrl: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: Sequelize.STRING,
+      allowNull: false
+    }
+  }) /* args: model-name, structure of the models */
+
+  module.exports = Product;
+```
