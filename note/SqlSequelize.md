@@ -46,3 +46,24 @@ create in utils/database.js
 ```js
   db.execute('SELECT * FROM products WHERE products.id = ?', [id])
 ```
+
+## Sequelize (ORM library)
+
+### Setup Sequelize
+
+**install npm package**
+`npm install --save mysql2`
+npm install --save sequelize
+
+**initialize**
+in  utils/database.js
+```js
+  const Sequelize = require('sequelize');
+
+  cosnt sequelize = new Sequelize('node-complete', 'root', 'nodecomplete', {dialect: 'mysql', host: 'localhost'}) /* database, username, password */
+
+  module.exports = sequelize;
+```
+
+## Create a Models Sequelize
+
