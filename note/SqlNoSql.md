@@ -1,6 +1,8 @@
 # SQL and NoSQl
 
-## Setup MySQL
+## SQL
+
+### Setup MySQL
 
 **install mysql**
 
@@ -21,11 +23,13 @@ create in utils/database.js
   module.exports = pool.promise() /* to return a promise */
 ```
 
-in app.js
+### Read Data SQL
 ```js
   const db = require('./utils/database')
-  db.execute('SELECT * FROM products')
+  db.execute('SELECT * FROM products').then([rows, filedData] => {
+    /* rows are the datas (entries) */
+  }).catch(err => {})
   /* db.end() when the app is shuting down */
 ```
 
-## SQL Basics
+### Insert Data SQL
