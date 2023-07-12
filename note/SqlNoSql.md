@@ -33,3 +33,10 @@ create in utils/database.js
 ```
 
 ### Insert Data SQL
+
+```js
+  db.execute(
+    'INSERT INTO products (title, price, imageUrl, description) VALUES (?, ?, ?, ?)', /* we use the ? to avoid SQL injection Attack */
+    [this.title, this.price, this.imageUrl, this.description]
+  ) 
+```
