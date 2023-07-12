@@ -40,3 +40,9 @@ create in utils/database.js
     [this.title, this.price, this.imageUrl, this.description]
   ) 
 ```
+
+### SQL WHERE
+
+```js
+  db.execute('SELECT * FROM products WHERE products.id = ?', [id])
+```
