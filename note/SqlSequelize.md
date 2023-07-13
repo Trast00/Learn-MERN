@@ -132,3 +132,13 @@ in app.js
   `find data with where`
   Product.findAll({where: {id: prodId}}) /* return a array */
 ```
+
+### Update data
+
+```js
+  `update a product`
+  Product.findById(prodId).then(product => {
+    product.title = "New title"
+    return product.save(); /* if the product doesn't exist, it create it */
+  })
+```
