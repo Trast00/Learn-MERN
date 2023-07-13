@@ -128,4 +128,7 @@ in app.js
 
   `find data by id`
   Product.findByPk()
+
+  `find data with where`
+  Product.findAll({where: {id: prodId}}) /* return a array */
 ```
