@@ -142,3 +142,19 @@ in app.js
     return product.save(); /* if the product doesn't exist, it create it */
   })
 ```
+
+### Delete / Destroy product
+
+```js
+  `destroy with where condition`
+  Product.destroy({/* where condition */})
+
+  `destroy after findById`
+  Product.findById(prodId).then(product => {
+    return product.destroy();
+  }).then(result => {
+    console.log('Destroyed product')
+  })
+```
+
+###
