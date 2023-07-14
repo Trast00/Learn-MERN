@@ -193,3 +193,33 @@ in app.js
   Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE'})
   User.hasMany(Product)
 ```
+
+### Add Pre-run setup
+```js
+  sequelize.sync().then(result => {
+    /* Do pre-initilisation here */
+    /* ex: return User.findById(1) */
+  }).then(user => {
+    /* User steup
+    if(!user) {
+      return User.create({ name: 'Max', email: 'test@test.com'})
+    }
+    return user */
+  }).then(user => {
+    app.listen(3000)
+  })
+```
+
+### Add data to all request (user data)
+
+```js
+  /* ..import and setup.. */
+  app.use((req, res, next) => {
+    User.findById(1).then(user => { /* find user current user */
+      req.user = user
+      next()
+    }).catch()
+
+  })
+  /* ..all routes, middleware.. */
+```
