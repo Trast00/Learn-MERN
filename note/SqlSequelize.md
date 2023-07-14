@@ -157,4 +157,32 @@ in app.js
   })
 ```
 
-###
+### create Models with relation
+
+```js
+  const Sequelize = require('sequelize');
+
+  const sequelize = require('../util/database');
+
+  const User = sequelize.define('user', {
+    id: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true
+    },
+    name: Sequelize.STRING,
+    email: Sequelize.STRING,
+  })
+```
+
+in app.js
+```js
+  Product.belongsTo(User, constrainst: true, onDelete: 'CASCADE')
+  User.hasMany(Product);
+
+  sequelize.sync({force: true} /* to replace the old table (Drop then create again*/)
+  .then(result => {
+    /* ... */
+  })
+```
