@@ -186,3 +186,10 @@ in app.js
     /* ... */
   })
 ```
+
+### Association: One to many relationship
+in app.js
+```js
+  Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE'})
+  User.hasMany(Product)
+```
