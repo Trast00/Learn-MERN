@@ -157,7 +157,38 @@ in app.js
   })
 ```
 
-### create Models with relation
+
+### Add Pre-run setup
+```js
+  sequelize.sync().then(result => {
+    /* Do pre-initilisation here */
+    /* ex: return User.findById(1) */
+  }).then(user => {
+    /* User steup
+    if(!user) {
+      return User.create({ name: 'Max', email: 'test@test.com'})
+    }
+    return user */
+  }).then(user => {
+    app.listen(3000)
+  })
+```
+
+### Add data to all request (user data)
+
+```js
+  /* ..import and setup.. */
+  app.use((req, res, next) => {
+    User.findById(1).then(user => { /* find user current user */
+      req.user = user
+      next()
+    }).catch()
+
+  })
+  /* ..all routes, middleware.. */
+```
+
+### Association: create Models with relation
 
 ```js
   const Sequelize = require('sequelize');
@@ -194,32 +225,12 @@ in app.js
   User.hasMany(Product)
 ```
 
-### Add Pre-run setup
+### Many to many relationship
+
+in app.js
 ```js
-  sequelize.sync().then(result => {
-    /* Do pre-initilisation here */
-    /* ex: return User.findById(1) */
-  }).then(user => {
-    /* User steup
-    if(!user) {
-      return User.create({ name: 'Max', email: 'test@test.com'})
-    }
-    return user */
-  }).then(user => {
-    app.listen(3000)
-  })
-```
+  Cart.belongsToMany(Product); /* One cart can have many product */
+  Product.belongsToMany(Cart, {through: CartItem}); /* One product can be in many cart*/
 
-### Add data to all request (user data)
-
-```js
-  /* ..import and setup.. */
-  app.use((req, res, next) => {
-    User.findById(1).then(user => { /* find user current user */
-      req.user = user
-      next()
-    }).catch()
-
-  })
-  /* ..all routes, middleware.. */
+  /* Has many to many need join tables which in this case is CartItem */
 ```
