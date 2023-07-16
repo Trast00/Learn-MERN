@@ -244,3 +244,11 @@ in app.js
   /* ... */
 ```
 
+### Association: Create associated 
+
+```js
+  /* ... */
+  /* this will create a CartItem linked to product and add the quantity to the cartItem*/
+  cart.addProduct(product, { through: {quantity: newQuantity }})
+  /* ... */
+```
