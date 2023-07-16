@@ -252,3 +252,12 @@ in app.js
   cart.addProduct(product, { through: {quantity: newQuantity }})
   /* ... */
 ```
+
+### Association: Destroy 
+
+```js
+  /* ... */
+  /* this will destroy a CartItem linked to product */
+  cart.cartItem.destrooy()
+  /* ... */
+```
