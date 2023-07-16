@@ -225,7 +225,7 @@ in app.js
   User.hasMany(Product)
 ```
 
-### Many to many relationship
+### Association: to many relationship
 
 in app.js
 ```js
@@ -234,3 +234,13 @@ in app.js
 
   /* Has many to many need join tables which in this case is CartItem */
 ```
+
+### Association: Fetching associated data
+```js
+  /* ... */
+  /* As cart is associated to user (Cart.belongsTo(User)) we can get cart by */
+  req.user.getCart()
+  cart.getProducts() /* Becarefull to plurial and singular */
+  /* ... */
+```
+
