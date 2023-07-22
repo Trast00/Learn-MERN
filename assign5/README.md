@@ -7,4 +7,10 @@
 - Page 3 : Item details, 
   - delete item
 - Page 4: Card
--  
+
+## TODO
+
+- [] Create User: Routes Models & Controller
+- [] Create Cards: Routes Models & Controller
+- [] Create Add/Update Card featre: views
+- [] Cards detail: with update & delete button
