@@ -4,11 +4,13 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+
+  --color-primary: rgb(2, 146, 212);
 }
 
 nav {
   color: white;
-  background-color: rgb(2, 146, 212);
+  background-color: var(--color-primary);
   box-shadow: 3px 6px 6px #d3d3d3;
 }
 
@@ -23,10 +25,47 @@ nav ul {
 }
 
 .card {
+  width: 240px;
+  height: 300px;
   border-radius: 6px;
   box-shadow: 3px 3px 6px #d3d3d3;
 }
 
+.card img {
+  background-color: pink;
+  flex: 1;
+}
+
 .card-content {
-  padding: 12px;
+  height: 100px;
+  padding: 6px 12px;
+}
+
+.list-shop {
+  gap: 16px
+}
+
+.btn-action {
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+}
+
+.btn-action:hover {
+  color: white;
+  background-color: var(--color-primary);
+}
+
+.btn-action.btn-red {
+  color: rgb(254, 96, 96);
+  border: 2px solid rgb(254, 96, 96);
+}
+
+.btn-action.btn-red:hover {
+  color: white;
+  background-color: rgb(254, 96, 96);
+}
+
+.gap-12 {
+  gap: 12px;
 }
