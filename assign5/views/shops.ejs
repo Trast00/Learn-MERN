@@ -3,41 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title><%= pageTitle %></title>
 </head>
 <body>
-  <h1>List of Items</h1>
-  <ul>
-    <li>
-      <div>
-        <img src="" alt="">
-        <h2>item name</h2>
-        <div>
-          <button type="button">Details</button>
-          <button type="button">Edit</button>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div>
-        <img src="" alt="">
-        <h2>item name</h2>
-        <div>
-          <button type="button">Details</button>
-          <button type="button">Edit</button>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div>
-        <img src="" alt="">
-        <h2>item name</h2>
-        <div>
-          <button type="button">Details</button>
-          <button type="button">Edit</button>
-        </div>
-      </div>
-    </li>
-  </ul>
+  <h1>List of Items: <%= listAnimals.length %></h1>
+  <% if(listAnimals.length != 0) { %>
+    <ul>
+      <% for(let animal of listAnimals){ %>      
+        <li>
+          <div>
+            <img src=<%= animal.imgUrl %> alt=<%= animal.name %> >
+            <h2><%= animal.name %></h2>
+            <div>
+              <button type="button">Details</button>
+              <button type="button">Edit</button>
+            </div>
+          </div>
+        </li>
+      <% } %>
+    </ul>
+  <% } else { %>
+    <p>List of animals empty</p>  
+  <% } %>
 </body>
 </html>

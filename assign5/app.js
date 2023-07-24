@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 /* internal import */
 const adminRoutes = require('./routes/index')
 const userRoutes = require('./routes/user')
+const shopRoute = require('./routes/shop')
 
 
 /* setup */
@@ -17,5 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 /* routes */
 app.use(adminRoutes)
 app.use(userRoutes)
+app.use(shopRoute)
 
 app.listen(3005)
