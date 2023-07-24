@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= pageTitle %></title>
-</head>
+<%- include('./includes/head') %>
 <body>
+  <%- include('./includes/nav') %>
   <h1>List of Items: <%= listAnimals.length %></h1>
   <% if(listAnimals.length != 0) { %>
     <ul>

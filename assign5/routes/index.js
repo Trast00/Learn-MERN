@@ -2,7 +2,9 @@ const express = require("express")
 const router = express.Router()
 
 router.get('/', (req, res, next)=>{
-  res.render('index.ejs')
+  res.render('index.ejs', {
+    pageTitle: "Home"
+  })
 })
 
 module.exports = router

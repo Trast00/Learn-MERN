@@ -2,21 +2,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 body {
+  margin: 0;
   font-family: 'Roboto', sans-serif;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
+nav {
+  color: white;
+  background-color: rgb(2, 146, 212);
+  box-shadow: 3px 6px 6px #d3d3d3;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
+nav a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+nav ul {
+  list-style: none;
+  gap: 24px;
+}
+
+.card {
+  border-radius: 6px;
+  box-shadow: 3px 3px 6px #d3d3d3;
+}
+
+.card-content {
+  padding: 12px;
 }
