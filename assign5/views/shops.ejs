@@ -8,7 +8,7 @@
     <ul class="no-style row wrap list-shop">
       <% for(let animal of listAnimals){ %>      
         <li>
-          <%- include('./includes/item') %>
+          <%- include('./includes/item', {animal: animal}); %>
         </li>
       <% } %>
     </ul>
