@@ -3,9 +3,9 @@
 <%- include('./includes/head') %>
 <body>
   <%- include('./includes/nav') %>
-  <h1>List of Items: <%= listAnimals.length %></h1>
+  <h1 class="flex-center">List of Items: <%= listAnimals.length %></h1>
   <% if(listAnimals.length != 0) { %>
-    <ul class="no-style row wrap list-shop">
+    <ul class="no-style flex-center wrap list-shop">
       <% for(let animal of listAnimals){ %>      
         <li>
           <%- include('./includes/item', {animal: animal}); %>
