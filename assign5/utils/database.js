@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('learn-express', 'root', {
+const sequelize = new Sequelize('pets', 'root', 'Lookingfor123', {
   dialect: 'mysql',
-  host: 'localhost'
+  host: '127.0.0.1'
 })
 
 module.exports = sequelize

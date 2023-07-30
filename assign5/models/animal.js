@@ -23,3 +23,5 @@ const Animal = sequelize.define('animal', {
     allowNull: true
   }
 })
+
+module.exports = Animal
