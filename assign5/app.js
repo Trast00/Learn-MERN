@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const adminRoutes = require('./routes/index')
 const userRoutes = require('./routes/user')
 const shopRoute = require('./routes/shop')
+const sequelize = require('./utils/database')
 
 
 /* setup */
@@ -20,4 +21,7 @@ app.use(adminRoutes)
 app.use(userRoutes)
 app.use(shopRoute)
 
-app.listen(3005)
+sequelize.sync().then(result => {
+  console.log("RESULT:",result)
+  app.listen(3005)
+}).catch(err => {console.log("Sync Error: ", err)})
