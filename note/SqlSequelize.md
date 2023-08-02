@@ -60,7 +60,7 @@ in  utils/database.js
 ```js
   const Sequelize = require('sequelize');
 
-  cosnt sequelize = new Sequelize('node-complete', 'root', 'nodecomplete', {dialect: 'mysql', host: 'localhost'}) /* database, username, password */
+  cosnt sequelize = new Sequelize('node-complete', 'root', 'nodecomplete', {dialect: 'mysql', host: 'localhost'}) /* database, username, password, otherConfig */
 
   module.exports = sequelize;
 ```
@@ -68,7 +68,7 @@ in  utils/database.js
 ### Create a Models Sequelize
 in models/product.js
 ```js
-  const Sequelize = require('seequelize');
+  const Sequelize = require('sequelize');
 
   const sequelize = require('utils/database');
 
@@ -258,6 +258,6 @@ in app.js
 ```js
   /* ... */
   /* this will destroy a CartItem linked to product */
-  cart.cartItem.destrooy()
+  cart.cartItem.destroy()
   /* ... */
 ```
