@@ -9,3 +9,7 @@ export const addPet = (pet) => {
 export const removePet = (pet) => {
 
 }
+
+export const updatePet = (pet) => {
+
+}
