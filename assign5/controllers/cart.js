@@ -10,6 +10,6 @@ export const removePet = (pet) => {
 
 }
 
-export const updatePet = (pet) => {
+export const removeAll = (pet) => {
 
 }
