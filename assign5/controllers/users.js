@@ -1,4 +1,4 @@
-export const getAllUser = () => {
+export const getAll = () => {
   
 }
 
