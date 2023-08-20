@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const users = require('./models/user')
 const bodyParser = require('body-parser')
 
 /* internal import */
@@ -20,6 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(adminRoutes)
 app.use(userRoutes)
 app.use(shopRoute)
+
+users.sync()
 
 sequelize.sync().then(result => {
   console.log("RESULT:",result)
