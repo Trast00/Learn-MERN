@@ -22,8 +22,6 @@ app.use(adminRoutes)
 app.use(userRoutes)
 app.use(shopRoute)
 
-users.sync()
-
 sequelize.sync().then(result => {
   console.log("RESULT:",result)
   app.listen(3005)
