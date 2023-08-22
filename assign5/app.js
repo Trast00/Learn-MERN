@@ -1,14 +1,17 @@
-const express = require('express')
-const app = express()
-const path = require('path')
-const users = require('./models/user')
-const bodyParser = require('body-parser')
+import express from 'express';
+const app = express();
+import path from 'path';
+import bodyParser from 'body-parser';
+import './models/user.js';
+import './models/cart.js';
+import './models/pet.js';
 
 /* internal import */
-const adminRoutes = require('./routes/index')
-const userRoutes = require('./routes/user')
-const shopRoute = require('./routes/shop')
-const sequelize = require('./utils/database')
+import adminRoutes from './routes/index.js';
+import userRoutes from './routes/user.js';
+import shopRoute from './routes/pets.js';
+import sequelize from './utils/database.js';
+
 
 
 /* setup */
