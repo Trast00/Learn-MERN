@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize')
-const sequelize = require('../utils/database')
+import Sequelize from 'sequelize'
+import sequelize from '../utils/database.js';
 //const { describe } = require('../../../Assets Correct/11-deleting-related-items/models/cart')
 
 const Animal = sequelize.define('pet', {
@@ -23,4 +23,4 @@ const Animal = sequelize.define('pet', {
   }
 })
 
-module.exports = Animal
+export default Animal

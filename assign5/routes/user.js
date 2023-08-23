@@ -23,4 +23,4 @@ router.use('/users/:userId', (req, res, next) => {
   res.redirect('/shops')
 })
 
-module.exports = router
+export default router

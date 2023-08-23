@@ -10,9 +10,11 @@ import './models/pet.js';
 import adminRoutes from './routes/index.js';
 import userRoutes from './routes/user.js';
 import shopRoute from './routes/pets.js';
+
 import sequelize from './utils/database.js';
 
-
+const currentModuleUrl = new URL(import.meta.url);
+const __dirname = path.dirname(currentModuleUrl.pathname);
 
 /* setup */
 app.set('view engine','ejs')

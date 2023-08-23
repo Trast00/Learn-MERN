@@ -1,6 +1,6 @@
 import express from 'express'
 const router = express.Router()
-const petsController = require('../controllers/pet.js')
+import * as petsController from '../controllers/pet.js'
 
 router.use('/pets', petsController.getAll /* (req, res, next) => {
   res.render('shops.ejs', {
@@ -8,4 +8,4 @@ router.use('/pets', petsController.getAll /* (req, res, next) => {
     listAnimals: listAnimals})
 }*/)
 
-module.exports = router
+export default router
