@@ -19,10 +19,22 @@ const listAnimals = [
   }
 ]
 
-export const getAll = (req, res, next) => {
+export const index = (req, res, next) => {
   res.render('pets.ejs', {
     pageTitle: "Pets",
-    listAnimals: listAnimals})
+    listAnimals: listAnimals
+  })
+}
+
+export const add = (req, res, next) => {
+  res.render('pets.ejs', {
+    pageTitle: "Pets",
+    listAnimals: listAnimals
+  })
+}
+
+export const create = (req, res, next) => {
+  
 }
 
 export const getById = () => {
