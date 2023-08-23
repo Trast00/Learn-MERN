@@ -20,8 +20,8 @@ const listAnimals = [
 ]
 
 export const getAll = (req, res, next) => {
-  res.render('shops.ejs', {
-    pageTitle: "Shop",
+  res.render('pets.ejs', {
+    pageTitle: "Pets",
     listAnimals: listAnimals})
 }
 

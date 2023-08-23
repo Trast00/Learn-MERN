@@ -13,8 +13,11 @@ import shopRoute from './routes/pets.js';
 
 import sequelize from './utils/database.js';
 
-const currentModuleUrl = new URL(import.meta.url);
-const __dirname = path.dirname(currentModuleUrl.pathname);
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /* setup */
 app.set('view engine','ejs')
