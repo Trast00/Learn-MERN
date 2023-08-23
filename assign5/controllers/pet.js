@@ -22,28 +22,27 @@ const listAnimals = [
 ]
 
 export const index = (req, res, next) => {
-  res.render('pets/index.ejs', {
-    pageTitle: "Pets",
-    listAnimals: listAnimals
+  Pet.findAll().then(result => {
+    const allPets = [...listAnimals, ...result.map(pet => pet.toJSON())]
+    console.log("LIST PET:", allPets)
+    res.render('pets/index.ejs', {
+      pageTitle: "Pets",
+      listAnimals: allPets
+    })
   })
 }
 
 export const add = (req, res, next) => {
   res.render('pets/add.ejs', {
-    pageTitle: "Pets",
-    listAnimals: listAnimals
+    pageTitle: "Pets"
   })
 }
 
 export const create = (req, res, next) => {
-  console.log("start:", req.body)
-  const {name, detail} = req.body
-  console.log("start2:", name, detail)
+  const {name, imageUrl, detail} = req.body
   // save in database
-  Pet.create({name: name, imageUrl: "", detail: detail})
+  Pet.create({name: name, imageUrl: imageUrl, detail: detail})
   .then(result => {
-    console.log("result:", result)
-    //const result = pet.save()
     if(result){
       res.redirect('/pets')
     } else {

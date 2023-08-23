@@ -14,7 +14,7 @@ const Pet = sequelize.define('pet', {
     allowNull: false,
   },
   imageUrl: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: true,
   },
   detail: {

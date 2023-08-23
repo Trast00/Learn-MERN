@@ -4,7 +4,8 @@
   <h1 class="flex-center">Add pets</h1>
   <form action="/pets/create" method="post"  class="flex-center column">
     <input type="text" class="input-default" name="name" placeholder="pet's name" maxlength="50" minlength="3" required>
-    <input type="text" class="input-default" name="detail" placeholder="pet's details" maxlength="50" minlength="3" required>
+    <input type="text" class="input-default" name="imageUrl" placeholder="pet's image url">
+    <input type="text" class="input-default" name="detail" placeholder="pet's details" maxlength="300" minlength="3" required>
     <button type="submit" class="btn-action">Save New Pet</button>
   </form>
 </div>
