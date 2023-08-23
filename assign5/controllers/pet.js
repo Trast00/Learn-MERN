@@ -24,7 +24,6 @@ const listAnimals = [
 export const index = (req, res, next) => {
   Pet.findAll().then(result => {
     const allPets = [...listAnimals, ...result.map(pet => pet.toJSON())]
-    console.log("LIST PET:", allPets)
     res.render('pets/index.ejs', {
       pageTitle: "Pets",
       listAnimals: allPets
@@ -49,6 +48,14 @@ export const create = (req, res, next) => {
       res.redirect('/pets/add')
     }
   })
+}
+
+export const destroy = (req, res, next) => {
+  console.log("destroy id:", req.params.id)
+  const id = req.params.id
+  Pet.destroy({where: {id: id}}).then(_ => {
+    res.redirect('/pets')
+  }) 
 }
 
 export const getById = () => {

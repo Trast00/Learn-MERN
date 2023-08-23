@@ -4,7 +4,12 @@
     <h2><%= animal.name %></h2>
     <div class="row gap-12">
       <button type="button" class="max-content-flex btn-action">Details</button>
-      <button type="button" class="max-content-flex btn-action btn-red">Delete</button>
+      <form action=<%= `/pets/${animal.id}/destroy` %>
+        method="delete"
+        class="max-content-flex">
+        <button type="submit" class="max-content btn-action btn-red">Delete</button>
+      </form>
+
     </div>
   </div>
 </div>
