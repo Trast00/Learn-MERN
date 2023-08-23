@@ -30,7 +30,6 @@ app.use(adminRoutes)
 app.use(userRoutes)
 app.use(shopRoute)
 
-sequelize.sync().then(result => {
-  console.log("RESULT:",result)
+sequelize.sync().then(_ => {
   app.listen(3005)
 }).catch(err => {console.log("Sync Error: ", err)})

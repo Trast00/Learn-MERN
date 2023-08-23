@@ -69,3 +69,10 @@ nav ul {
 .gap-12 {
   gap: 12px;
 }
+
+.input-default {
+  border-radius: 4px;
+  margin: 6px;
+  padding: 8px 16px;
+  border: 2px solid var(--color-primary);
+}

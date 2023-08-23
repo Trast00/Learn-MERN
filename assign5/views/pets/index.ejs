@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./includes/head') %>
+<%- include('../includes/head') %>
 <body>
-  <%- include('./includes/nav') %>
+  <%- include('../includes/nav') %>
   <h1 class="flex-center">List of Items: <%= listAnimals.length %></h1>
   <% if(listAnimals.length != 0) { %>
     <ul class="no-style flex-center wrap list-shop">
       <% for(let animal of listAnimals){ %>      
         <li>
-          <%- include('./includes/item', {animal: animal}); %>
+          <%- include('../includes/item', {animal: animal}); %>
         </li>
       <% } %>
     </ul>

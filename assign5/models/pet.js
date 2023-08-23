@@ -2,7 +2,7 @@ import Sequelize from 'sequelize'
 import sequelize from '../utils/database.js';
 //const { describe } = require('../../../Assets Correct/11-deleting-related-items/models/cart')
 
-const Animal = sequelize.define('pet', {
+const Pet = sequelize.define('pet', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -15,12 +15,12 @@ const Animal = sequelize.define('pet', {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
-  details: {
+  detail: {
     type: Sequelize.STRING,
     allowNull: true
   }
 })
 
-export default Animal
+export default Pet
