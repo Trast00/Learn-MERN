@@ -1,29 +1,8 @@
 import Pet from "../models/pet.js"
 
-const listAnimals = [
-  {
-    id: 1,
-    name: "Mouse",
-    imgUrl: "aaa",
-    ownerId: 1,
-  },
-  {
-    id: 2,
-    name: "Cat",
-    imgUrl: "aaa",
-    ownerId: 1,
-  },
-  {
-    id: 3,
-    name: "Pigeon",
-    imgUrl: "aaa",
-    ownerId: 2,
-  }
-]
-
 export const index = (req, res, next) => {
   Pet.findAll().then(result => {
-    const allPets = [...listAnimals, ...result.map(pet => pet.toJSON())]
+    const allPets = [...result.map(pet => pet.toJSON())]
     res.render('pets/index.ejs', {
       pageTitle: "Pets",
       listAnimals: allPets
