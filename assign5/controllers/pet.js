@@ -37,10 +37,6 @@ export const destroy = (req, res, next) => {
   }) 
 }
 
-export const getById = () => {
-  
-}
-
-export const updateId = () => {
+export const update = () => {
   
 }
