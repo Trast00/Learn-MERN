@@ -1,10 +1,13 @@
 <div class="column card">
-  <img src=<%= animal.imageUrl %> alt=<%= animal.name %>>
+  <img src=<%= pet.imageUrl %> alt=<%= pet.name %>>
   <div class="card-content">
-    <h2><%= animal.name %></h2>
+    <h2><%= pet.name %></h2>
     <div class="row gap-12">
-      <button type="button" class="max-content-flex btn-action">Update</button>
-      <form action=<%= `/pets/${animal.id}/destroy` %>
+      <button type="button" class="max-content-flex btn-action">
+        <a href=<%= `/pets/${pet.id}/edit` %> ></a>
+        Update
+      </button>
+      <form action=<%= `/pets/${pet.id}/destroy` %>
         method="delete"
         class="max-content-flex">
         <button type="submit" class="max-content btn-action btn-red">Delete</button>
