@@ -4,8 +4,9 @@
     <h2><%= pet.name %></h2>
     <div class="row gap-12">
       <button type="button" class="max-content-flex btn-action">
-        <a href=<%= `/pets/${pet.id}/edit` %> ></a>
-        Update
+        <a href=<%= `/pets/${pet.id}/edit` %> class="no-style">
+          Update
+        </a>
       </button>
       <form action=<%= `/pets/${pet.id}/destroy` %>
         method="delete"

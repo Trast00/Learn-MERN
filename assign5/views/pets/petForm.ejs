@@ -1,0 +1,7 @@
+<form action=<%= pet ? `/pets/${pet.id}/update` : "/pets/create"%>
+  method="post"  class="flex-center column">
+  <input type="text" class="input-default" name="name" placeholder="pet's name"  value="<%= pet ? pet.name : '' %>" maxlength="50" minlength="3" required>
+  <input type="text" class="input-default" name="imageUrl" placeholder="pet's image url" value="<%= pet ? pet.imageUrl : '' %>" >
+  <input type="text" class="input-default" name="detail" placeholder="pet's details" value="<%= pet ? pet.detail : '' %>"  maxlength="300" minlength="3" required>
+  <button type="submit" class="btn-action">Save New Pet</button>
+</form>

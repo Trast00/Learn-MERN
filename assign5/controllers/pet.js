@@ -29,8 +29,38 @@ export const create = (req, res, next) => {
   })
 }
 
+export const edit = (req, res, next) => {
+  const id = req.params.id
+  Pet.findByPk(id).then(data => {
+    const pet = data.toJSON()
+    res.render('pets/edit', {
+      pageTitle: `${pet.name} update`,
+      pet: pet,
+    })
+  })
+}
+
+export const updatePet = (req, res, next) => {
+  const id = req.params.id
+  const {name, imageUrl, detail} = req.body
+  Pet.findByPk(id)
+  //save pet in database
+  .then(pet => {
+    //pet.name = name
+    //pet.imageUrl = imageUrl
+    //pet.detail = detail
+    pet.set({name, imageUrl, detail})
+    return pet.save()
+  })
+  //send response
+  .then(result => {
+    if (result){
+      res.redirect('./pets')
+    }
+  })
+}
+
 export const destroy = (req, res, next) => {
-  console.log("destroy id:", req.params.id)
   const id = req.params.id
   Pet.destroy({where: {id: id}}).then(_ => {
     res.redirect('/pets')
