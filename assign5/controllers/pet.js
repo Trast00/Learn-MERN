@@ -46,9 +46,6 @@ export const updatePet = (req, res, next) => {
   Pet.findByPk(id)
   //save pet in database
   .then(pet => {
-    //pet.name = name
-    //pet.imageUrl = imageUrl
-    //pet.detail = detail
     pet.set({name, imageUrl, detail})
     return pet.save()
   })
