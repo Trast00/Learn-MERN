@@ -55,7 +55,7 @@ export const updatePet = (req, res, next) => {
   //send response
   .then(result => {
     if (result){
-      res.redirect('./pets')
+      res.redirect('/pets')
     }
   })
 }
