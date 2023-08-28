@@ -10,6 +10,7 @@ import './models/pet.js';
 import adminRoutes from './routes/index.js';
 import userRoutes from './routes/user.js';
 import shopRoute from './routes/pets.js';
+import cartRoutes from './routes/cart.js'
 
 import sequelize from './utils/database.js';
 
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(adminRoutes)
 app.use(userRoutes)
 app.use(shopRoute)
+app.use(cartRoutes)
 
 sequelize.sync().then(_ => {
   app.listen(3005)
