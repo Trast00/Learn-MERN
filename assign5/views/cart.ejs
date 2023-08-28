@@ -3,7 +3,7 @@
 <%- include('./includes/head') %>
 <body>
   <%- include('./includes/nav') %>
-  <h1 class="flex-center">List of Items: <%= listPets.length %></h1>
+  <h1 class="flex-center">List of Items in Cart: <%= listPets.length %></h1>
   <% if(listPets.length != 0) { %>
     <ul class="no-style flex-center wrap list-shop">
       <% for(let pet of listPets){ %>      
@@ -13,7 +13,7 @@
       <% } %>
     </ul>
   <% } else { %>
-    <p class="max-content-flex flex-center">List of animals empty</p>  
+    <p class="max-content-flex flex-center">List of pets in cart empty</p>  
   <% } %>
 </body>
 </html>
