@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./includes/head') %>
+<body>
+  <%- include('./includes/nav') %>
+  <h1 class="flex-center">List of Items: <%= listPets.length %></h1>
+  <% if(listPets.length != 0) { %>
+    <ul class="no-style flex-center wrap list-shop">
+      <% for(let pet of listPets){ %>      
+        <li>
+          <%- include('./includes/item', {pet: pet}); %>
+        </li>
+      <% } %>
+    </ul>
+  <% } else { %>
+    <p class="max-content-flex flex-center">List of animals empty</p>  
+  <% } %>
+</body>
+</html>
