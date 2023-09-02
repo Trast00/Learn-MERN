@@ -26,6 +26,18 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, 'public')))
 
 /* middleware */
+let userId = undefined
+app.use("/users/:id", (req, res, next) => {
+  userId = req.params.id
+  console.log("Req data: ", req.params.id)
+  next()
+})
+
+app.use("*", (req, res, next) => {
+  req.body.userId = userId
+  next()
+})
+
 /* routes */
 app.use(adminRoutes)
 app.use(userRoutes)
