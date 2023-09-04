@@ -3,14 +3,14 @@ const app = express();
 import path from 'path';
 import bodyParser from 'body-parser';
 import './models/user.js';
-import './models/cart.js';
+import './models/favorite.js';
 import './models/pet.js';
 
 /* internal import */
 import adminRoutes from './routes/index.js';
 import userRoutes from './routes/user.js';
 import shopRoute from './routes/pets.js';
-import cartRoutes from './routes/cart.js'
+import favoriteRoutes from './routes/favorite.js'
 
 import sequelize from './utils/database.js';
 
@@ -42,7 +42,7 @@ app.use("*", (req, res, next) => {
 app.use(adminRoutes)
 app.use(userRoutes)
 app.use(shopRoute)
-app.use(cartRoutes)
+app.use(favoriteRoutes)
 
 sequelize.sync().then(_ => {
   app.listen(3005)
