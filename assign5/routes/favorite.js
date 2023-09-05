@@ -3,6 +3,7 @@ const router = express.Router()
 
 import * as favoriteController from '../controllers/favorite.js'
 
-router.get('/favorite', favoriteController.index)
+router.use('/favorites', favoriteController.index)
+router.use('/favorites/create', favoriteController.create)
 
 export default router
