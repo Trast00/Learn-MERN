@@ -34,12 +34,11 @@ app.use("/users/:id", (req, res, next) => {
 })
 
 app.use("*", (req, res, next) => {
-  if(userId != undefined){
-    req.body.userId = userId
-    next()
-  } else {
-    res.redirect('/')
+  req.body.userId = userId
+  if (!userId){
+    //res.redirect('/pets')
   }
+  next()
 })
 
 /* routes */

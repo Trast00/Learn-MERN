@@ -1,14 +1,16 @@
 import Favorite from '../models/favorite.js'
-export const index = async (req, res, next) => {
-  /*const listPets = await getPets(req.body.userId)
-  console.log("list pet: ", listPets)
-  res.render('favorite.ejs', {
-    pageTitle: "Cart",
-    listPets: []
-  })*/
+export const index = (req, res, next) => {
+  getPets(req.body.userId).then(listPets => {
+    console.log("list Data GOT: ", listPets)
+    res.render('favorite', {
+      pageTitle: "Cart",
+      listPets: listPets || []
+    })
+  })
 }
 
 export const create = async (req, res, next) => {
+  console.log("Pet SAVED: ", req.body)
   Favorite.create({userId: req.body.userId, petId: req.body.petId})
   .then(result => {
     if(result){
@@ -18,8 +20,8 @@ export const create = async (req, res, next) => {
 }
 
 export const getPets = async (userId) => {
-  Favorite.findAll({where: {id: userId}}).then(listData => {
-    const listPets = listData.map(data => data.toJSON())
-    return listPets
-  })
+  const listData = await Favorite.findAll({where: {userId: userId}})
+  const listPets = listData.map(data => data.toJSON())
+  console.log('list data saved:', listPets)
+  return listPets
 }
