@@ -2,9 +2,9 @@ import express from 'express';
 const app = express();
 import path from 'path';
 import bodyParser from 'body-parser';
-import './models/user.js';
-import './models/favorite.js';
-import './models/pet.js';
+import User from './models/user.js';
+import Favorite from './models/favorite.js';
+import Pet from './models/pet.js';
 
 /* internal import */
 import adminRoutes from './routes/index.js';
@@ -46,6 +46,11 @@ app.use(adminRoutes)
 app.use(userRoutes)
 app.use(shopRoute)
 app.use(favoriteRoutes)
+
+User.hasMany(Favorite)
+Pet.hasMany(Favorite)
+Favorite.belongsTo(User, {constrainst: true, onDelete: 'CASCADE'})
+Favorite.belongsTo(Pet, {constrainst: true, onDelete: 'CASCADE'})
 
 sequelize.sync().then(_ => {
   app.listen(3005)

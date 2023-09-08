@@ -1,4 +1,5 @@
 import Favorite from '../models/favorite.js'
+import User from '../models/user.js'
 export const index = (req, res, next) => {
   getPets(req.body.userId).then(listPets => {
     console.log("list Data GOT: ", listPets)
@@ -21,7 +22,7 @@ export const create = async (req, res, next) => {
 
 export const getPets = async (userId) => {
   const listData = await Favorite.findAll({where: {userId: userId}})
-  const listPets = listData.map(data => data.toJSON())
+  const listPets = listData.map((favorite) => favorite.getPet())
   console.log('list data saved:', listPets)
   return listPets
 }

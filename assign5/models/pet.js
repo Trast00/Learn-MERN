@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize'
 import sequelize from '../utils/database.js';
+import Favorite from './favorite.js';
 //const { describe } = require('../../../Assets Correct/11-deleting-related-items/models/cart')
 
 const Pet = sequelize.define('pet', {
