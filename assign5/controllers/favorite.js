@@ -21,8 +21,10 @@ export const create = async (req, res, next) => {
 }
 
 export const getPets = async (userId) => {
-  const listData = await Favorite.findAll({where: {userId: userId}})
+  const userList= User.findAll({where: {id: userId}})
+  const listData = await userList[0].getPets()
+  //const listData = await Favorite.findAll({where: {userId: userId}})
   const listPets = listData.map((favorite) => favorite.getPet())
-  console.log('list data saved:', listPets)
+  console.log('list data saved:', listData, "  -- ", listPets)
   return listPets
 }
