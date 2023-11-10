@@ -47,10 +47,10 @@ app.use(userRoutes)
 app.use(shopRoute)
 app.use(favoriteRoutes)
 
-/*Pet.hasMany(Favorite)
+Pet.hasMany(Favorite)
 Favorite.belongsTo(Pet, {constraints: true, onDelete: 'CASCADE'})
 User.hasMany(Favorite)
-Favorite.belongsTo(User, {constraints: true, onDelete: 'CASCADE'})*/
+Favorite.belongsTo(User, {constraints: true, onDelete: 'CASCADE'})
 
 
 sequelize.sync().then(_ => {
