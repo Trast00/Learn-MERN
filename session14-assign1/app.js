@@ -40,7 +40,7 @@ app.use(
 app.use((req, res, next) => {
   User.findById('672e3b50f994d2f26d0f7a4d')
     .then(user => {
-      req.user = user;
+      req.session.user = user;
       next();
     })
     .catch(err => console.log(err));
