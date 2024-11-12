@@ -37,15 +37,6 @@ app.use(
   })
 );
 
-app.use((req, res, next) => {
-  User.findById('672e3b50f994d2f26d0f7a4d')
-    .then(user => {
-      req.session.user = user;
-      next();
-    })
-    .catch(err => console.log(err));
-});
-
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(authRoutes);
@@ -58,8 +49,9 @@ mongoose
     User.findOne().then(user => {
       if (!user) {
         const user = new User({
-          name: 'Max',
-          email: 'max@test.com',
+          name: 'allassane',
+          email: 'dicko@gmail.com',
+          // mdp: dicko123&
           cart: {
             items: []
           }
@@ -68,7 +60,7 @@ mongoose
       }
     });
     app.listen(3000);
-    console.log("start listening 3000")
+    console.log("start listening 3010")
   })
   .catch(err => {
     console.log(err);
