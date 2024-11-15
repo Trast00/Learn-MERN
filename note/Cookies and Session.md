@@ -72,3 +72,18 @@ app.use(session({
   store: store
   }))
 ```
+
+##
+
+req.sesion.destroy((err) =/ {
+  //redirect to /
+})
+
+result:
+should remove the session in MongoDB
+
+##
+in postLogin,call req.session.save() to make sure the request is saved before redirecting
+req.session.save(err =/ {
+  res.redirect('/');
+})
