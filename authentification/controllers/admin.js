@@ -5,7 +5,8 @@ exports.getAddProduct = (req, res, next) => {
     pageTitle: 'Add Product',
     path: '/admin/add-product',
     editing: false,
-    isAuthenticated: req.session.isLoggedIn
+    isAuthenticated: req.session.isLoggedIn,
+    csrfToken: req.csrfToken
   });
 };
 
@@ -49,7 +50,8 @@ exports.getEditProduct = (req, res, next) => {
         path: '/admin/edit-product',
         editing: editMode,
         product: product,
-        isAuthenticated: req.session.isLoggedIn
+        isAuthenticated: req.session.isLoggedIn,
+        csrfToken: req.csrfToken
       });
     })
     .catch(err => console.log(err));
@@ -81,13 +83,15 @@ exports.getProducts = (req, res, next) => {
   Product.find()
     // .select('title price -_id')
     // .populate('userId', 'name')
+    console.log('rendered CSRF:', req.csrfToken)
     .then(products => {
       console.log(products);
       res.render('admin/products', {
         prods: products,
         pageTitle: 'Admin Products',
         path: '/admin/products',
-        isAuthenticated: req.session.isLoggedIn
+        isAuthenticated: req.session.isLoggedIn,
+        csrfToken: req.csrfToken
       });
     })
     .catch(err => console.log(err));

@@ -2,10 +2,14 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs')
 
 exports.getLogin = (req, res, next) => {
+  console.log('rendered csrf:', req.csrfToken)
+  console.log('rendered csrf:', req.csrfToken)
   res.render('auth/login', {
     path: '/login',
     pageTitle: 'Login',
-    isAuthenticated: false
+    isAuthenticated: false,
+    csrfToken: req.csrfToken
+    
   });
 };
 
@@ -13,7 +17,8 @@ exports.getSignup = (req, res, next) => {
   res.render('auth/signup', {
     path: '/signup',
     pageTitle: 'Signup',
-    isAuthenticated: false
+    isAuthenticated: false,
+    csrfToken: req.csrfToken
   });
 };
 

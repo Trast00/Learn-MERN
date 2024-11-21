@@ -9,6 +9,7 @@
     <main>
         <form class="login-form" action="/login" method="POST">
             <div class="form-control">
+              <input type="hidden" name="CSRFToken" value="<%= csrfToken %>">
                 <label for="email">E-Mail</label>
                 <input type="email" name="email" id="email">
             </div>

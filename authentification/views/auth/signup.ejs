@@ -9,6 +9,7 @@
     <main>
         <form class="login-form" action="/signup" method="POST">
             <div class="form-control">
+              <input type="hidden" name="CSRFToken" value="<%= csrfToken %>">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" required>
             </div>
